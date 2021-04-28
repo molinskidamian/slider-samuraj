@@ -11,21 +11,26 @@ const slideList = [{
  text: 'Trzeci tekst'
 }];
 
-const image = document.querySelector('img.slider');
-const h1 = document.querySelector('h1.slider');
-// Interfejs
-const time = 3000;
-let active = 0;
+const img = document.querySelector('img.slider');
+const h1 = document.querySelector('h1');
+
+const time = 5000;
+let active = 1;
 
 const changeSlide = () => {
- active++;
- if (active === slideList.length) {
-  active = 0;
- }
- image.src = slideList[active].img;
- h1.textContent = slideList[active].text;
+
+  if(active === slideList.length){
+    active = 0;
+  }
+  
+  img.removeAttribute('img');
+  img.setAttribute("src", slideList[active].img);
+  h1.textContent = slideList[active].text;
+
+  console.log(active);
+  active++;
 
 }
-setInterval(changeSlide, time)
 
-Implementacje
+
+setInterval(changeSlide, time);
